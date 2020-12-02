@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Implement matrix_shape function """
 
 
 def matrix_shape(matrix):
