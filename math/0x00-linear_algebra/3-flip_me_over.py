@@ -2,6 +2,7 @@
 
 
 def matrix_transpose(matrix):
+    """ transpose a matrix """
     new_matrix = []
     contador = 0
     aux = []

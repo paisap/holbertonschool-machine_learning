@@ -2,6 +2,7 @@
 
 
 def mat_mul(mat1, mat2):
+    """ mul two mat """
     if len(mat1[0]) != len(mat2):
         return None
     ward = 0
