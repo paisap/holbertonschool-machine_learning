@@ -12,6 +12,6 @@ def summ(n, i):
 
 def summation_i_squared(n):
     """ recursivamente"""
-    if n < 1:
+    if type(n) != int or n <= 0:
         return None
     return summ(n, 1)
