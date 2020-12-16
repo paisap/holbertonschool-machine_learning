@@ -28,10 +28,7 @@ class Exponential:
         if x < 0:
             return 0
 
-        for i in range(1, x + 1):
-            factorial = factorial * i
-
-        return ((e**-self.lambtha)*(self.lambtha**x))/factorial
+        return (self.lambtha * e**-self.lambtha*x)
 
     def cdf(self, x):
         """ calculate the pmf """
