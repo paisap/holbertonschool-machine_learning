@@ -13,14 +13,14 @@ class Exponential:
             if len(data) <= 2:
                 raise ValueError("data must contain multiple values")
             x = float(sum(data) / len(data))
-            self.lambtha = (1 / x)
+            self.lambtha = float(1 / x)
         else:
             if lambtha <= 0:
                 raise ValueError("lambtha must be a positive value")
             self.lambtha = float(lambtha)
 
     def pdf(self, x):
-        """ calculate the pmf"""
+        """ calculate the pdf"""
         e = 2.7182818285
 
         if x < 0:
@@ -29,13 +29,9 @@ class Exponential:
         return (self.lambtha * e ** (- self.lambtha * x))
 
     def cdf(self, x):
-        """ calculate the pmf """
-        resultado = 0
-        x = int(x)
-
+        """ calculate the cdf """
+        e = 2.7182818285
         if x < 0:
             return 0
 
-        for s in range(x + 1):
-            resultado += self.pdf(s)
-        return resultado
+        return (1 - e ** (- self.lambtha * x))
