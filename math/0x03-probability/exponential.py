@@ -22,8 +22,6 @@ class Exponential:
     def pdf(self, x):
         """ calculate the pmf"""
         e = 2.7182818285
-        factorial = 1
-        x = int(x)
 
         if x < 0:
             return 0
