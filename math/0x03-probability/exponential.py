@@ -18,3 +18,29 @@ class Exponential:
             if lambtha <= 0:
                 raise ValueError("lambtha must be a positive value")
             self.lambtha = float(lambtha)
+
+    def pdf(self, x):
+        """ calculate the pmf"""
+        e = 2.7182818285
+        factorial = 1
+        x = int(x)
+
+        if x < 0:
+            return 0
+
+        for i in range(1, x + 1):
+            factorial = factorial * i
+
+        return ((e**-self.lambtha)*(self.lambtha**x))/factorial
+
+    def cdf(self, x):
+        """ calculate the pmf """
+        resultado = 0
+        x = int(x)
+
+        if x < 0:
+            return 0
+
+        for s in range(x + 1):
+            resultado += self.pdf(s)
+        return resultado
