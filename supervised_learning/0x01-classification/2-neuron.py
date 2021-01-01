@@ -42,4 +42,5 @@ class Neuron:
         """ Calculates the forward propagation of the neuron """
         z = np.matmul(self.__W, X) + self.__b
         z = self.sigmoid(z)
+        self.__A = z
         return z
