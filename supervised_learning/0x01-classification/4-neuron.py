@@ -54,4 +54,5 @@ class Neuron:
         predic = A
         predic[A < 0.5] = 0
         predic[A >= 0.5] = 1
+        predic = predic.astype('int')
         return [predic, costo]
