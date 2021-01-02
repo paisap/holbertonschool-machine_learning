@@ -13,7 +13,7 @@ class NeuralNetwork:
         if type(nx) != int:
             raise TypeError("nx must be an integer")
         if nx < 1:
-            raise ValueError("nx must be a positive")
+            raise ValueError("nx must be a positive integer")
 
         if type(nodes) != int:
             raise TypeError("nodes must be an integer")
