@@ -51,7 +51,7 @@ class Neuron:
         """ Evaluates the neuron’s predictions and cost"""
         A = self.forward_prop(X)
         costo = self.cost(Y, A)
-        predic = A
+        predic = A.copy()
         predic[A < 0.5] = 0
         predic[A >= 0.5] = 1
         predic = predic.astype('int')
@@ -66,12 +66,14 @@ class Neuron:
         """ trains the neuron """
         if type(iterations) is not int:
             raise TypeError("iterations must be an integer")
-        if iterations <= 0:
+        if iterations < 1:
             raise ValueError("iterations must be a positive integer")
+
         if type(alpha) is not float:
             raise TypeError("alpha must be a float")
         if alpha <= 0:
             raise ValueError("alpha must be positive")
+
         for i in range(iterations):
             A = self.forward_prop(X)
             self.gradient_descent(X, Y, A, alpha)
