@@ -67,7 +67,7 @@ class DeepNeuralNetwork:
             weight = weights['W' + str(i + 1)]
             bias = weights['b' + str(i + 1)]
 
-            cache['A' + str(i + 1)] = sigmoid(weight @ inputs + bias)
+            cache['A' + str(i + 1)] = self.sigmoid(weight @ inputs + bias)
 
         return [cache['A' + str(i + 1)], cache]
 
