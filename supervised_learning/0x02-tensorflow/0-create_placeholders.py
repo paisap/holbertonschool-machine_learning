@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-
+""" coment """
 import tensorflow as tf
+
 
 def create_placeholders(nx, classes):
     """ create two place"""
