@@ -3,9 +3,9 @@
 import tensorflow.keras as K
 
 
-def saver_model(network, filename):
+def save_model(network, filename):
     """ saves a model """
-    network.save(filename)
+    K.models.save_model(network, filename)
     return None
 
 
