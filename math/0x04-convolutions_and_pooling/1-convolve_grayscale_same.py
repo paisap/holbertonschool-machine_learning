@@ -9,10 +9,10 @@ def convolve_grayscale_same(images, kernel):
     kh, kw = kernel.shape
     anhkh = max((kh - 1) // 2, kh // 2)
     anwkw = max((kw - 1) // 2, kw // 2)
-    padded = np.pad(images, ((0, 0), (anhkh, anhkh), (anwkw, anwkw)))
-    ans = np.zeros((m, kh, kw))
-    for i in range(kh):
-        for j in range(kw):
+    padded = np.pad(images, ((0,), (anhkh,), (anwkw,)), 'constant')
+    ans = np.zeros((m, h, w))
+    for i in range(h):
+        for j in range(w):
             ans[:, i, j] = (padded[:, i: i + kh, j: j + kw]
                             * kernel).sum(axis=(1, 2))
     return ans
