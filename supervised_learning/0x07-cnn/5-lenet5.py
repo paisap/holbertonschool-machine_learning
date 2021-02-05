@@ -6,21 +6,40 @@ import tensorflow.keras as K
 def lenet5(X):
     """ that builds a modified version of
     the LeNet-5 architecture using keras: """
-    He = K.initializers.he_normal()
-    conv1 = K.layers.Conv2D(filters=6, kernel_size=(5, 5), padding='same',
-                            activation='relu', kernel_initializer=He)(X)
-    pool1 = K.layers.MaxPool2D(pool_size=(2, 2), strides=(2, 2))(conv1)
-    conv2 = K.layers.Conv2D(filters=16, kernel_size=(5, 5), padding='valid',
-                            activation='relu', kernel_initializer=He)(pool1)
-    pool2 = K.layers.MaxPool2D(pool_size=(2, 2), strides=(2, 2))(conv2)
-    pool2 = K.layers.Flatten()(pool2)
-    dense1 = K.layers.Dense(units=120, activation='relu',
-                            kernel_initializer=He)(pool2)
-    dense2 = K.layers.Dense(units=84, activation='relu',
-                            kernel_initializer=He)(dense1)
-    dense3 = K.layers.Dense(units=10, activation='softmax',
-                            kernel_initializer=He)(dense2)
-    network = K.Model(inputs=X, outputs=dense3)
-    network.compile(optimizer=K.optimizers.Adam(),
-                    loss='categorical_crossentropy', metrics=['accuracy'])
-    return network
+    conv_layer_1 = K.layers.Conv2D(filters=6,
+                    kernel_size=(5,5),
+                    padding="same",
+                    kernel_initializer="he_normal",
+                    activation="relu")(X)
+    
+    pooled_layer_1 = K.layers.MaxPool2D(pool_size=(2,2),
+                                        strides=(2,2))(conv_layer_1)
+    conv_layer_2 = K.layers.Conv2D(filters=16,
+                                   kernel_size=(5,5),
+                                   padding="valid",
+                                   kernel_initializer="he_normal",
+                                   activation="relu")(pooled_layer_1)
+
+    
+    pooled_layer_2 =  K.layers.MaxPool2D(pool_size=(2,2),
+                                         strides=(2,2))(conv_layer_2)
+
+    pooled_layer_2 = K.layers.Flatten()(pooled_layer_2)
+    fully_con_1 = K.layers.Dense(120,
+                                 activation="relu",
+                                 kernel_initializer="he_normal")(pooled_layer_2)
+
+    fully_con_2 = K.layers.Dense(84,
+                                 activation="relu",
+                                 kernel_initializer="he_normal")(fully_con_1)
+
+    fully_con_soft = K.layers.Dense(10,
+                                    activation="softmax",
+                                    kernel_initializer="he_normal")(fully_con_2)
+
+    model = K.Model(inputs=X, outputs=fully_con_soft)
+    model.compile(loss="categorical_crossentropy",
+                  optimizer=K.optimizers.Adam(),
+                  metrics=['accuracy']) 
+
+    return model
