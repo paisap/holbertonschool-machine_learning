@@ -1,20 +1,18 @@
 #!/usr/bin/env python3
-""" function mat_mul """
+""" that performs matrix multiplication: """
 
 
 def mat_mul(mat1, mat2):
-    """ mul two mat """
+    """ that performs matrix multiplication: """
     if len(mat1[0]) != len(mat2):
         return None
-    ward = 0
-    mat = []
-    while ward < len(mat1):
+    new_mat = []
+    for i in range(len(mat1)):
         aux = []
-        for i in range(len(mat2[0])):
-            multiply = 0
-            for j in range(len(mat2)):
-                multiply += mat1[ward][j] * mat2[j][i]
-            aux.append(multiply)
-        mat.append(aux)
-        ward += 1
-    return mat
+        for j in range(len(mat2[0])):
+            y = 0
+            for x in range(len(mat1[0])):
+                y += mat1[i][x] * mat2[x][j]
+            aux.append(y)
+        new_mat.append(aux)
+    return new_mat

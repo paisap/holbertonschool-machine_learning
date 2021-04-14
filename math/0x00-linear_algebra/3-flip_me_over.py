@@ -1,17 +1,8 @@
 #!/usr/bin/env python3
-""" that coment """
+"""that returns the transpose of a 2D matrix """
 
 
 def matrix_transpose(matrix):
-    """ transpose a matrix """
-    new_matrix = []
-    contador = 0
-    aux = []
-    i = 0
-    for i in range(len(matrix[0])):
-        for j in range(len(matrix)):
-            aux.append(matrix[j][i])
-            if (j + 1) == len(matrix):
-                new_matrix.append(aux)
-                aux = []
+    """ that returns the transpose of a 2D matrix """
+    new_matrix = [[matrix[j][i] for j in range(len(matrix))] for i in range(len(matrix[0]))]
     return new_matrix

@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-""" Implement add_arrays function """
+"""that adds two arrays element-wise """
 
 
 def add_arrays(arr1, arr2):
-    """ add 2 arrays """
+    """  that adds two arrays element-wise: """
     if len(arr1) != len(arr2):
         return None
-    arr = [i + j for i, j in zip(arr1, arr2)]
-    return arr
+    return [arr1[i] + arr2[i] for i in range(len(arr1))]
