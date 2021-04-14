@@ -10,5 +10,5 @@ def np_slice(matrix, axes={}):
 
     for key, value in sorted(axes.items()):
         slice_list[key] = slice(*value)
-    x = tuple(slice_list)
-    return matrix[x]
+    matrix = matrix[tuple(slice_list)]
+    return matrix
