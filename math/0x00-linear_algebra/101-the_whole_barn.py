@@ -29,4 +29,3 @@ def add_matrices(mat1, mat2):
     if size1 != size2:
         return None
     return add_two_matrices(mat1, mat2)
-  
