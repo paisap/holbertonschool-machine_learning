@@ -1,1 +1,0 @@
-how tamos con cnn

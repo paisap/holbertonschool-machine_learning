@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 """Function that returns the tensor output of the layer"""
 
