@@ -1,4 +1,4 @@
- #!/usr/bin/env python3
+#!/usr/bin/env python3
 """PCA function"""
 
 import numpy as np
